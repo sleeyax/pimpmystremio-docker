@@ -1,8 +1,6 @@
 # pimpmystremio-docker
 Docker image to run [PimpMyStremio](https://github.com/sungshon/PimpMyStremio) (Alpine based, ~110MB total size).
 
-**ARCHIVED IN FAVOR OF PMS (UPCOMING) OFFICIAL DOCKER IMAGE - SEE https://github.com/sungshon/PimpMyStremio/pull/85 FOR DETAILS**
-
 ## Usage
 `docker run -v <data path>:/root/.local/share/PimpMyStremio/ <sideloaded addons path>:/app/sideloaded -p [<host ip>:]<host port>:7777 --build-arg version=<PMS version to use> sleeyax/pimpmystremio`
 
