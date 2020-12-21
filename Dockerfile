@@ -4,7 +4,6 @@ LABEL maintaner="Sleeyax"
 LABEL description="Docker container to run PimpMyStremio"
 
 ARG version=1.2.2
-ARG port=7777
 
 WORKDIR /app
 
@@ -16,6 +15,6 @@ RUN chmod +x ./PimpMyStremio
 VOLUME ["/root/.local/share/PimpMyStremio/"]
 VOLUME ["/app/sideloaded"]
 
-EXPOSE ${port}
+EXPOSE 7777
 
 ENTRYPOINT ["/app/PimpMyStremio", "--sideload=", "/app/sideloaded", "--verbose"]
