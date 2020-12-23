@@ -1,0 +1,23 @@
+FROM node:12.20.0-alpine3.10
+
+LABEL maintaner="Sleeyax"
+LABEL description="Docker container to run PimpMyStremio"
+
+ARG version=1.2.2
+
+ENV PMS_SIDELOAD="/app/sideloaded"
+ENV PMS_VERBOSE='1'
+
+WORKDIR /app
+
+RUN apk add --update --no-cache git
+RUN git clone https://github.com/sungshon/PimpMyStremio.git sourcecode
+# exclude forked-systray from install bcs its postinstall script fails
+RUN cd sourcecode/src && sed -i '/forked-systray/d' package.json && npm i --production
+
+VOLUME ["/root/.local/share/PimpMyStremio/"]
+VOLUME ["/app/sideloaded"]
+
+EXPOSE 7777
+
+ENTRYPOINT cd /app/sourcecode/src/ && node index.js
