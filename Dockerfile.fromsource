@@ -3,8 +3,6 @@ FROM node:12.20.0-alpine3.10
 LABEL maintaner="Sleeyax"
 LABEL description="Docker container to run PimpMyStremio"
 
-ARG version=1.2.2
-
 ENV PMS_SIDELOAD="/app/sideloaded"
 ENV PMS_VERBOSE='1'
 
